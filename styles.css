@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500&family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
 
-body{
-  font-family: 'Golos Text', sans-serif;
-  font-family: 'Oswald', sans-serif;
+body{ 
+  font-family: 'JetBrains Mono', monospace;
   background-color: #1c1a1a;
 }
 .seccion{
@@ -11,7 +10,8 @@ body{
   gap: 1rem;
 }
 .contenedor-btn{
-  font: 1.5em sans-serif;
+  font-variant: normal;
+  font-size: 1rem;
   color: #ede7e7;
   display: flex;
   justify-content: baseline;
@@ -27,7 +27,7 @@ body{
   padding: 0.4rem 6rem;
   border-radius: 10px;
   margin-top: 0.5em;
-  font: 0.6em sans-serif;
+  font: 1em sans-serif;
   font-weight: 500;
 }
 input, textarea{
@@ -44,6 +44,7 @@ input:focus, textarea:focus{
   grid-column: span 4 / span 4;
   display: flex;
   flex-wrap: wrap;
+  word-wrap: break-word;
   margin: 0 !important;
 }
 .contenido > p {
@@ -52,8 +53,15 @@ input:focus, textarea:focus{
   text-align: justify;
   width: 100%;
 }
+.id{
+  position: absolute;
+  display: flex;
+  right: 1rem;
+  color: #f30707
+}
 #titulo{
   width: calc(100% - 1rem);
+  font-weight: bold;
 }
 button{
   background: #ede7e7;
@@ -73,6 +81,7 @@ button:hover{
   color: #ede7e7;
 }
 .caja{
+  position: relative;
   flex-grow: 1;
   margin: 1rem;
   background: #332f2f;
