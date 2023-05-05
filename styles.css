@@ -59,6 +59,59 @@ input:focus, textarea:focus{
   right: 1rem;
   color: #f30707
 }
+.contenedor-icono{
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.texto{
+  font-size: 1rem;
+  font-weight: 600;
+  background: #ff0000;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  float: right;
+  
+}
+.texto:hover{
+  text-decoration:rgba(253 29 29 /1) 50% underline;
+  text-decoration-thickness: 0.1rem;
+  text-underline-offset: 0.4rem;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: icono 1s infinite;
+  
+}
+@keyframes icono {
+  0% {
+    transform: rotateZ(2deg);
+    background: -webkit-linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  25% {
+    transform: rotateZ(-5deg);
+    background: -webkit-linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  50% {
+    /* transform: rotateZ(10deg); */
+    background: -webkit-linear-gradient(180deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  75%{
+    background: -webkit-linear-gradient(270deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  100%{
+    background: -webkit-linear-gradient(360deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
 #titulo{
   width: calc(100% - 1rem);
   font-weight: bold;
