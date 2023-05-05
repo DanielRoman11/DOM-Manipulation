@@ -11,7 +11,14 @@
 <body>
   <section class="seccion">
     <div class="contenedor-btn">
+      <form id="formulario">
+        <label for="titulo">Titulo: </label>
+        <input name="titulo" id="titulo" type="text"/>
+        <p>Inserte una descripción: </p>
+        <textarea name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
+      </form>
       <button onclick="crearCajon()" type="submit" id="boton">Insertar</button>
+      <div id="box-error"></div>
     </div>
     <div class="contenido">
       <p id="desc">Contenido insertado: <span id="contador"></span></p>
