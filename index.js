@@ -1,4 +1,4 @@
-let contador = 1;
+let id = 1;
 function crearCajon() {
   const desc = document.getElementById("desc");
   const span = document.getElementById("contador");
@@ -14,22 +14,23 @@ function crearCajon() {
   }
   let error = document.getElementById("error");
   if(error){ error.remove() }
-  
-  let html = `<div class="caja" id="tarjeta${contador}">
-  <h4 class="id">${contador}</h4>
+
+  let html = `<div class="caja" id="tarjeta${id}">
+  <h4 class="id">${id}</h4>
   <h3>${titulo.value}</h3>
   <hr />
   <p>${descripcion.value}</p>
   <div class="contenedor-icono">
-  <p class="texto">Borrar</p>
+    <a class="texto" id="eliminar">Borrar</a>
+    <a class="texto" id="editar">Editar </a>
   </div>
   </div>`;
   titulo.value = ""
   descripcion.value = ""
-  span.innerText = contador
+  span.innerText = id
 
   desc.insertAdjacentHTML("afterend", html);
-  return contador++;
+  return id++;
 }
 
 

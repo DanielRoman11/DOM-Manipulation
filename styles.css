@@ -2,7 +2,7 @@
 
 body{ 
   font-family: 'JetBrains Mono', monospace;
-  background-color: #1c1a1a;
+  background-color: #1e453e;
 }
 .seccion{
   display: grid;
@@ -12,7 +12,8 @@ body{
 .contenedor-btn{
   font-variant: normal;
   font-size: 1rem;
-  color: #ede7e7;
+  font-weight: bold;
+  color: #959d98;
   display: flex;
   justify-content: baseline;
   align-content: center;
@@ -32,13 +33,17 @@ body{
 }
 input, textarea{
   padding: 0.5rem;
+  margin: 1rem 0;
   border-radius: 5px;
   border: none;
 }
 input:focus, textarea:focus{
-  outline: 2px solid white;
-  outline-style: dashed;
-  outline-width: 4px;
+  outline: 0 solid #306844;
+  outline-style: ridge;
+  outline-width: 0.4rem;
+}
+form > p{
+  margin: initial;
 }
 .contenido {
   grid-column: span 4 / span 4;
@@ -56,61 +61,42 @@ input:focus, textarea:focus{
 .id{
   position: absolute;
   display: flex;
+  top: -1rem;
   right: 1rem;
-  color: #f30707
+  color: #306844;
 }
 .contenedor-icono{
+  display: flex;
+  justify-content: space-around;
+  padding: 0.4rem 0;
+}
+.texto#eliminar{
+  background: #ff0000;
+  -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+}
+.texto#editar{
+  background: #759242;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 .texto{
   font-size: 1rem;
   font-weight: 600;
-  background: #ff0000;
-  -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   float: right;
-  
 }
 .texto:hover{
-  text-decoration:rgba(253 29 29 /1) 50% underline;
+  cursor: pointer;
+  text-shadow: 5px 5px solid black;
+  text-decoration:rgb(255, 255, 255) 50% underline;
   text-decoration-thickness: 0.1rem;
   text-underline-offset: 0.4rem;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: icono 1s infinite;
-  
-}
-@keyframes icono {
-  0% {
-    transform: rotateZ(2deg);
-    background: -webkit-linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  25% {
-    transform: rotateZ(-5deg);
-    background: -webkit-linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  50% {
-    /* transform: rotateZ(10deg); */
-    background: -webkit-linear-gradient(180deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  75%{
-    background: -webkit-linear-gradient(270deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  100%{
-    background: -webkit-linear-gradient(360deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+  font-size: 100px;
+  animation: eliminar 1.5s infinite;
+  transition: 1s; 
 }
 #titulo{
   width: calc(100% - 1rem);
@@ -137,11 +123,28 @@ button:hover{
   position: relative;
   flex-grow: 1;
   margin: 1rem;
-  background: #332f2f;
+  background:#182c25;
   margin-left: 2rem;
   padding: 0 1rem;
   border: none;
   border-radius: 10px;
   color: #ffff;
   width: 12.5em;
+}
+@keyframes eliminar {
+  0%{
+    background: -webkit-linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(126,190,132,1) 35%, rgba(161,189,108,1) 75%, rgba(253,187,45,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  50%{
+    background: -webkit-linear-gradient(20deg, rgba(34,193,195,1) 0%, rgba(126,190,132,1) 35%, rgba(161,189,108,1) 75%, rgba(253,187,45,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  100%{
+    background: -webkit-linear-gradient(50deg, rgba(34,193,195,1) 0%, rgba(126,190,132,1) 35%, rgba(161,189,108,1) 75%, rgba(253,187,45,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
