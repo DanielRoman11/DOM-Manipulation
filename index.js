@@ -88,7 +88,7 @@ const crearNota = async() =>{
     document.getElementById("contador").innerText = Object.keys(datos).length
 
     //* Insertar elemento en el listado:
-    return desc.insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
+    return document.getElementById(`tarjeta${size}`).insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
   }
 }
 //* Variable Contador */
