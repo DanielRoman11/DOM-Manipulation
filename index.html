@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manipulando el DOM</title>
   <link rel="stylesheet" href="styles.css">
-  <script defer src="index.js"></script>
-  <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script async type="application/javascript" defer src="index.js"></script>
 </head>
 <body>
   <h1>Notas en Single Page Application</h1>
@@ -20,12 +18,11 @@
         <p>Descripción:</p>
         <textarea name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
       </form>
-      <button onclick="crearCajon()" type="submit" id="boton">Insertar</button>
+      <button onclick="crearNota()" type="submit" id="boton">Insertar</button>
       <div id="box-error"></div>
     </div>
     <div class="contenido">
-      <p id="desc">Listado: <span id="contador"></span></p>
-      
+      <p id="desc">Tarjetas añadidas: <span id="contador"></span></p>
     </div>
   </section>
   

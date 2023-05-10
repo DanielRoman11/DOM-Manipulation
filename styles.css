@@ -60,7 +60,7 @@ form > p{
 }
 .contenido {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   flex-wrap: wrap;
   word-wrap: break-word;
   margin: 0 !important;
