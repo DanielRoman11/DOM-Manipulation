@@ -2,7 +2,7 @@
 
 body{ 
   font-family: 'JetBrains Mono', monospace;
-  background-color: #1e453e;
+  background-color: #102420;
 }
 h1{
   text-align: center;
@@ -169,11 +169,10 @@ button:hover{
     background-position: 20vw;
   }
 }
-@media (max-width: 780px) {
-  .seccion{
-    flex-direction: column;
-  }
-  .contenedor-btn{
-    border: 0;
-  }
+
+@media (max-width: 768px) {
+  .seccion{flex-direction: column;}
+  .contenedor-btn{border: 0;}
+  .contenido{padding: 0; gap: 5px; overflow-x: hidden; max-width: 100%;}
+  div.caja{margin: 0 !important; padding: 10px; max-width: 100% !important; min-width: 10rem;}
 }
