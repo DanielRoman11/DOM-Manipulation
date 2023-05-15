@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manipulando el DOM</title>
   <link rel="stylesheet" href="styles.css">
-  <script async type="application/javascript" defer src="index.js"></script>
+  <script async type="application/javascript" defer src="JS/index.js"></script>
+  <script async type="application/javascript" defer src="JS/reload.js"></script>
+  <script async type="application/javascript" defer src="JS/delete.js"></script>
 </head>
 <body>
   <h1>Notas en Single Page Application</h1>
@@ -18,7 +20,10 @@
         <p>Descripción:</p>
         <textarea name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
       </form>
-      <button onclick="crearNota()" type="submit" id="boton">Insertar</button>
+      <div class="botones">
+        <button onclick="crearNota()" type="submit">Insertar Nota</button>
+        <button onclick="reiniciarDatos()" id="reiniciar">Reiniciar Nota</button>
+      </div>
       <div id="box-error"></div>
     </div>
     <div class="contenido">

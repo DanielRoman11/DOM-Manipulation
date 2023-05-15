@@ -86,23 +86,27 @@ form > p{
 }
 .texto#eliminar{
   background: #ff0000;
-  -webkit-background-clip: text;
   background-clip: text;
+  -webkit-background-clip: text;
 }
 .texto#eliminar:hover{
+  background: -webkit-linear-gradient(0deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: eliminar 1.5s infinite;
-}
-.texto#editar:hover{
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: editar 1.5s infinite;
+  -webkit-background-clip: text;
+  animation: backgroundMove 5s linear infinite;
 }
 .texto#editar{
   background: #759242;
-  -webkit-background-clip: text;
   background-clip: text;
+  -webkit-background-clip: text;
+}
+.texto#editar:hover{
+  background: -webkit-linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(126,190,132,1) 35%, rgba(161,189,108,1) 75%, rgba(253,187,45,1) 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  animation: backgroundMove 5s linear infinite;
 }
 .texto{
   font-size: 1rem;
@@ -122,18 +126,26 @@ form > p{
   width: calc(100% - 1rem);
   font-weight: bold;
 }
+.botones{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
 button{
   background: #ede7e7;
   color:#1c1a1a;
   cursor: pointer;
   border: none;
   padding: 0 1.5rem;
-  font-size: large;
+  font-size: medium;
   font-weight: 600;
   border-radius: 10px;
   height: 2.5rem;
   max-height: 2.5rem;
   max-width: 10rem;
+}
+button#reiniciar{
+  offset-anchor: 1px;
 }
 button:hover{
   background: #111010;
@@ -152,41 +164,11 @@ button:hover{
   max-width: 100%;
   min-width: 20rem;
 }
-@keyframes editar {
-  0%{
-    background: -webkit-linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(126,190,132,1) 35%, rgba(161,189,108,1) 75%, rgba(253,187,45,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  50%{
-    background: -webkit-linear-gradient(20deg, rgba(34,193,195,1) 0%, rgba(126,190,132,1) 35%, rgba(161,189,108,1) 75%, rgba(253,187,45,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  100%{
-    background: -webkit-linear-gradient(50deg, rgba(34,193,195,1) 0%, rgba(126,190,132,1) 35%, rgba(161,189,108,1) 75%, rgba(253,187,45,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+@keyframes backgroundMove {
+  to{
+    background-position: 20vw;
   }
 }
-@keyframes eliminar {
-  0%{
-    background: linear-gradient(0deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  50%{
-
-    background: linear-gradient(20deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  100%{
-    background: linear-gradient(50deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-
 @media (max-width: 780px) {
   .seccion{
     flex-direction: column;
