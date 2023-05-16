@@ -1,3 +1,5 @@
+import { getData } from "./index.mjs";
+
 const crearNota = async() =>{
   //* Tomar valores del formulario
   const titulo = document.getElementById("titulo");

@@ -1,7 +1,8 @@
 import crearNota from "./agregar.mjs";
 import removerNota from "./delete.mjs";
 
-const getData = i =>[`
+function getData(i) {
+  return [`
   <div class="caja" id="tarjeta${i.id}">
     <div class="titleCard">
       <h4 class="id">${i.id}</h4>
@@ -9,10 +10,11 @@ const getData = i =>[`
     </div>
     <p>${i.descripcion}</p>
     <div class="contenedor-icono">
-      <a class="texto" onclick="remover(${i.id - 1})" id="eliminar">Borrar</a>
+      <a class="texto" id="remover">Borrar</a>
       <a class="texto" id="editar">Editar </a>
     </div>
-  </div>`]
+  </div>`];
+}
 
 let contador = document.getElementById("contador") //? Variable contador
 
@@ -34,8 +36,12 @@ if(window.localStorage.getItem("notas") !== null){
   document.getElementById("contador").innerText = Object.keys(datos).length;
 }
 
+let agregarBtn = document.getElementById("agregar");
+let removerBtn = document.getElementById("remover");
 
-const _getData = {
+agregarBtn.addEventListener("click", () => crearNota())
+// removerNota.addEventListener("click", removerBtn())
+
+export {
   getData
-};
-export { _getData as getData };
+}
