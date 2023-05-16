@@ -1,9 +1,10 @@
 function getData(i) {
   return [`
   <div class="caja" id="tarjeta${i.id}">
-    <h4 class="id">${i.id}</h4>
-    <h3>${i.titulo}</h3>
-    <hr />
+    <div class="topC">
+      <h4 class="id">${i.id}</h4>
+      <h3>${i.titulo}</h3>
+    </div>
     <p>${i.descripcion}</p>
     <div class="contenedor-icono">
       <a class="texto" id="eliminar">Borrar</a>
@@ -23,6 +24,9 @@ const crearNota = async() =>{
   
   //* Crear un id
   let id = 1;
+
+  //! Errores
+
 
   //? Ver si hay datos existentes
   if(!datos){
@@ -51,7 +55,7 @@ const crearNota = async() =>{
     document.getElementById("contador").innerText = id
 
     //* Insertar elemento en el listado:
-    return desc.insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
+    desc.insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
   } else {
     //* Obtener los datos del localstorage
     let datos = await JSON.parse(localStorage.getItem("notas"));
@@ -88,8 +92,11 @@ const crearNota = async() =>{
     document.getElementById("contador").innerText = Object.keys(datos).length
 
     //* Insertar elemento en el listado:
-    return document.getElementById(`tarjeta${size}`).insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
+    document.getElementById(`tarjeta${size}`).insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
   }
+  //* Reiniciar campos
+  titulo.value = ""
+  return descripcion.value= ""
 }
 //* Variable Contador */
 let contador = document.getElementById("contador")

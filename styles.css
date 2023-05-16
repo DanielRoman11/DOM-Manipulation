@@ -1,19 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
+
+:root{
+  --background-color: linear-gradient(to right, #0E0A0A 0%, #000000 51%,  #0E0A0A 90%);
+  --title-color: #D6A666;
+  --text-color: #000000;
+  --text-color-form: --text-color;
+  --card-color: #FFE6CD;
+}
 
 body{ 
   font-family: 'JetBrains Mono', monospace;
-  background-color: #102420;
+  background: var(--background-color);
+  background-attachment: fixed;
+  background-position: center;
+  animation: backgroundMove 10s linear infinite;
 }
 h1{
+  font-family: 'Sigmar', cursive;
+  font-size: 4rem;
   text-align: center;
-  background: rgb(34,193,195);
-  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(126,190,132,1) 8%, rgba(150,189,116,1) 18%, rgba(161,189,108,1) 36%, rgba(253,187,45,1) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--title-color);
+  padding-top: 5rem;
 }
 .seccion{
-  padding: 6rem 2rem;
   display: flex;
   flex-direction: row-reverse;
   gap: 2rem;
@@ -77,7 +87,7 @@ form > p{
   display: flex;
   top: -1rem;
   right: 1rem;
-  color: #306844;
+  color: var(--text-color);
 }
 .contenedor-icono{
   display: flex;
@@ -94,9 +104,11 @@ form > p{
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  animation: backgroundMove 5s linear infinite;
+  animation: backgroundMove 20s linear infinite;
 }
 .texto#editar{
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
   background: #759242;
   background-clip: text;
   -webkit-background-clip: text;
@@ -106,7 +118,7 @@ form > p{
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  animation: backgroundMove 5s linear infinite;
+  animation: backgroundMove 20s linear infinite;
 }
 .texto{
   font-size: 1rem;
@@ -155,18 +167,18 @@ button:hover{
   position: relative;
   flex-grow: 1;
   margin: 1rem;
-  background:#182c25;
+  background:#FFE6CD;
   margin-left: 2rem;
   padding: 0 1rem;
   border: none;
   border-radius: 10px;
-  color: #ffff;
+  color: var(--text-color);
   max-width: 100%;
   min-width: 20rem;
 }
 @keyframes backgroundMove {
   to{
-    background-position: 20vw;
+    background-position: 100vw;
   }
 }
 
