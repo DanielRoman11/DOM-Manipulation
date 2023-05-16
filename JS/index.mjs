@@ -10,8 +10,8 @@ function getData(i) {
     </div>
     <p>${i.descripcion}</p>
     <div class="contenedor-icono">
-      <a class="texto" id="remover">Borrar</a>
-      <a class="texto" id="editar">Editar </a>
+      <a class="texto" id="eliminar">Borrar</a>
+      <a class="texto" id="editar">Editar</a>
     </div>
   </div>`];
 }
@@ -37,7 +37,7 @@ if(window.localStorage.getItem("notas") !== null){
 }
 
 let agregarBtn = document.getElementById("agregar");
-let removerBtn = document.getElementById("remover");
+let removerBtn = document.getElementById("eliminar");
 
 agregarBtn.addEventListener("click", () => crearNota())
 // removerNota.addEventListener("click", removerBtn())
