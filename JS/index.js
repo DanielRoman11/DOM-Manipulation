@@ -1,7 +1,7 @@
 function getData(i) {
   return [`
   <div class="caja" id="tarjeta${i.id}">
-    <div class="topC">
+    <div class="titleCard">
       <h4 class="id">${i.id}</h4>
       <h3>${i.titulo}</h3>
     </div>

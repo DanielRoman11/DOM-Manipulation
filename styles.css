@@ -26,7 +26,6 @@ h1{
 .seccion{
   display: flex;
   flex-direction: row-reverse;
-  gap: 2rem;
 }
 .contenedor-btn{
   position: relative;
@@ -72,11 +71,15 @@ form > p{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  flex: 1 1 auto;
   word-wrap: break-word;
   margin: 0 !important;
   width: 100%;
+  padding: 0 1rem;
+  gap: 1rem;
 }
 .contenido > p {
+  margin: 0 !important;
   color: #fff;
   font-size: x-large;
   text-align: justify;
@@ -91,8 +94,44 @@ form > p{
 }
 .contenedor-icono{
   display: flex;
-  justify-content: space-around;
+  align-items: flex-end;
+  justify-content: normal;
+  gap: 1rem;
+  flex-direction: row-reverse;
   padding: 0.4rem 0;
+  padding-right: 1rem;
+}
+.caja{
+  position: relative;
+  flex-grow: 1;
+  background:#FFE6CD;
+  border: none;
+  border-radius: 10px;
+  color: var(--text-color);
+  max-width: 100%;
+  min-width: 20rem;
+}
+.caja:nth-child(4){
+  background-color: #FFE6CD;
+}
+.caja:nth-child(even){
+  background-color: #F28F49;
+}
+.caja:nth-child(5n){
+  background-color: #D6A666;
+}
+.titleCard{
+  background: rgba(28 26 26 / 0.1);
+  border-radius: 7px 7px 0 0;
+  padding: 1rem;
+}
+.caja h3{
+  margin: 0;
+  border: 0;
+  height: calc(100% - 1rem);
+}
+.caja p{
+  padding: 0 1rem;
 }
 .texto#eliminar{
   background: #ff0000;
@@ -156,25 +195,20 @@ button{
   max-height: 2.5rem;
   max-width: 10rem;
 }
+button:last-child{
+  color: #fff;
+  border-spacing: 5px;
+  background-color: #ff0000;
+}
+button:last-child:hover{
+  background-color: #340000;
+}
 button#reiniciar{
   offset-anchor: 1px;
 }
 button:hover{
   background: #111010;
   color: #ede7e7;
-}
-.caja{
-  position: relative;
-  flex-grow: 1;
-  margin: 1rem;
-  background:#FFE6CD;
-  margin-left: 2rem;
-  padding: 0 1rem;
-  border: none;
-  border-radius: 10px;
-  color: var(--text-color);
-  max-width: 100%;
-  min-width: 20rem;
 }
 @keyframes backgroundMove {
   to{
