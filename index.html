@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manipulando el DOM</title>
   <link rel="stylesheet" href="styles.css">
-  <script async type="application/javascript" defer src="JS/index.js"></script>
-  <script async type="application/javascript" defer src="JS/reload.js"></script>
-  <script async type="application/javascript" defer src="JS/delete.js"></script>
+  <script type="module" defer src="JS/index.mjs"></script>
+  <script defer src="JS/reload.js"></script>
+  <script type="module" defer src="JS/delete.mjs"></script>
 </head>
 <body>
   <h1>Notas 🗒️</h1>
@@ -21,8 +21,8 @@
         <textarea name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
       </form>
       <div class="botones">
-        <button onclick="crearNota()" type="submit">Insertar Nota</button>
-        <button onclick="reiniciarDatos()" id="reiniciar">Reiniciar Notas</button>
+        <button id="agregar" type="submit">Insertar Nota</button>
+        <button id="reiniciar">Reiniciar Notas</button>
       </div>
       <div id="box-error"></div>
     </div>

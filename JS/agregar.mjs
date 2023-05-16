@@ -1,18 +1,3 @@
-function getData(i) {
-  return [`
-  <div class="caja" id="tarjeta${i.id}">
-    <div class="titleCard">
-      <h4 class="id">${i.id}</h4>
-      <h3>${i.titulo}</h3>
-    </div>
-    <p>${i.descripcion}</p>
-    <div class="contenedor-icono">
-      <a class="texto" id="eliminar">Borrar</a>
-      <a class="texto" id="editar">Editar </a>
-    </div>
-  </div>`]
-}
-
 const crearNota = async() =>{
   //* Tomar valores del formulario
   const titulo = document.getElementById("titulo");
@@ -25,7 +10,7 @@ const crearNota = async() =>{
   //* Crear un id
   let id = 1;
 
-  //! Errores
+  //TODO: Comprobar errores
 
 
   //? Ver si hay datos existentes
@@ -37,7 +22,7 @@ const crearNota = async() =>{
     descripcion: descripcion.value
     }
 
-    //TODO: Crear un array vacio e insertar la nota creada
+    //* Crear un array vacio e insertar la nota creada
     const notas = [];
     notas.push(nota);
     
@@ -73,15 +58,14 @@ const crearNota = async() =>{
     //* Modificación del id en notas
     nota.id = id++
     
-
     //* Creando una copia de los datos
     const notas = [...datos];
     console.log(notas);
   
-    // //TODO: Crear un array vacio e insertar la nota creada
+    //* Crear un array vacio e insertar la nota creada
     notas.push(nota);
   
-    // //* Modificar el objeto agregando la nueva nota
+    //* Modificar el objeto agregando la nueva nota
     localStorage.setItem("notas", JSON.stringify(notas));
   
     //* Refrescar los datos
@@ -98,23 +82,5 @@ const crearNota = async() =>{
   titulo.value = ""
   return descripcion.value= ""
 }
-//* Variable Contador */
-let contador = document.getElementById("contador")
 
-//* Comprobar si existen notas creadas
-if(window.localStorage.getItem("notas") !== null){
-  //* Tomar las notas anteriores
-  let datos = JSON.parse(localStorage.getItem("notas"));
-
-  //* Copiar los datos
-  const notas = [...datos];
-  
-  //* Iterar por cada elemeto y crear cada nota
-  const contenido = notas.map(getData).join("");
-  
-  //* Insertar elementos existentes después del título
-  document.getElementById("desc").insertAdjacentHTML("afterend", contenido);
-
-  //* Cambiar el contador
-  document.getElementById("contador").innerText = Object.keys(datos).length
-}
+export default crearNota;
