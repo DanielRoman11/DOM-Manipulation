@@ -13,7 +13,16 @@ const crearNota = async() =>{
   let id = 1;
 
   //TODO: Comprobar errores
-
+  let errores = document.getElementById("box-error")
+  if(titulo.value === "" || descripcion.value === ""){
+    return errores.innerHTML = `
+    <div class="error">Todos los campos son obligatorios</div>
+    `
+  }
+  
+  if(errores){
+    errores.innerText = ""
+  }
 
   //? Ver si hay datos existentes
   if(!datos){

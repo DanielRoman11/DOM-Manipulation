@@ -35,21 +35,22 @@ h1{
   font-weight: bold;
   color: #959d98;
   display: flex;
-  justify-content: baseline;
   align-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 2rem;
+  padding: 2rem 0.5rem;
   grid-column: span 4 / span 4;
   border-left: 3px dashed #1c1a1a;
 }
 .error{
   background-color: red;
-  padding: 0.4rem 6rem;
   border-radius: 10px;
+  padding: 0.2rem 1rem;
   margin-top: 0.5em;
   font: 1em sans-serif;
   font-weight: 500;
+  max-width: 200px;
+  text-align:center ;
   color: #ffffff !important;
 }
 input, textarea{
@@ -111,13 +112,13 @@ form > p{
   max-width: 100%;
   min-width: 20rem;
 }
-.caja:nth-child(4){
+.caja:nth-child(4n+0){
   background-color: #FFE6CD;
 }
-.caja:nth-child(even){
+.caja:nth-child(5n+0){
   background-color: #F28F49;
 }
-.caja:nth-child(5n){
+.caja:nth-child(3n-1){
   background-color: #D6A666;
 }
 .titleCard{
@@ -168,7 +169,7 @@ form > p{
 .texto:hover{
   cursor: pointer;
   text-shadow: 5px 5px solid black;
-  text-decoration:rgb(255, 255, 255) 50% underline;
+  text-decoration:var(--text-color) 50% underline;
   text-decoration-thickness: 0.1rem;
   text-underline-offset: 0.4rem;
   transition: 1s; 
@@ -218,7 +219,7 @@ button:hover{
 
 @media (max-width: 768px) {
   .seccion{flex-direction: column;}
-  .contenedor-btn{border: 0;}
+  .contenedor-btn{border: 0; padding: 1rem;}
   .contenido{padding: 0; gap: 5px; overflow-x: hidden; max-width: 100%;}
-  div.caja{margin: 0 !important; padding: 10px; max-width: 100% !important; min-width: 10rem;}
+  div.caja{margin: 0 !important; max-width: 100% !important; min-width: 10rem;}
 }
