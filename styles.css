@@ -111,6 +111,7 @@ form > p{
 }
 .caja{
   position: relative;
+  height: max-content;
   flex-grow: 1;
   background:#F28F49;
   border: none;
