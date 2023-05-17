@@ -1,20 +1,7 @@
 import crearNota from "./agregar.mjs";
 import removerNota from "./delete.mjs";
+import getData from "./getData.mjs";
 
-function getData(i) {
-  return [`
-  <div class="caja" id="tarjeta${i.id}">
-    <div class="titleCard">
-      <h4 class="id">${i.id}</h4>
-      <h3>${i.titulo}</h3>
-    </div>
-    <p>${i.descripcion}</p>
-    <div class="contenedor-icono">
-      <a class="texto" id="eliminar">Borrar</a>
-      <a class="texto" id="editar">Editar</a>
-    </div>
-  </div>`];
-}
 
 let contador = document.getElementById("contador") //? Variable contador
 
@@ -34,13 +21,16 @@ if(window.localStorage.getItem("notas") !== null){
 
   //? Cambiando el contador
   document.getElementById("contador").innerText = Object.keys(datos).length;
+
+  // //* Funcionalidad remover nota
+  let removerBtn = document.getElementById("eliminar");
+  removerBtn.addEventListener("click", () => removerNota())
+  
 }
 
 let agregarBtn = document.getElementById("agregar");
-let removerBtn = document.getElementById("eliminar");
 
 agregarBtn.addEventListener("click", () => crearNota())
-// removerNota.addEventListener("click", removerBtn())
 
 export {
   getData

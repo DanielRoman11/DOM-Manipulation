@@ -1,6 +1,7 @@
 function reiniciarDatos() {
-  localStorage.clear();
-  alert("La página se recargará");
-  window.location.reload()
+  localStorage.removeItem("notas");
+
+  let contenido = document.querySelector(".contenido");
+  contenido.innerHTML = `<p id="desc">Tarjetas añadidas: <span id="contador"></span></p>`
 }
 

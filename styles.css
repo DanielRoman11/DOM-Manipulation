@@ -169,7 +169,7 @@ form > p{
 .texto:hover{
   cursor: pointer;
   text-shadow: 5px 5px solid black;
-  text-decoration:var(--text-color) 50% underline;
+  text-decoration: var(--text-color) 50% underline;
   text-decoration-thickness: 0.1rem;
   text-underline-offset: 0.4rem;
   transition: 1s; 

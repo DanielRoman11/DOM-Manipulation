@@ -71,7 +71,7 @@ const crearNota = async() =>{
     
     //* Creando una copia de los datos
     const notas = [...datos];
-    console.log(notas);
+    // console.log(notas);
   
     //* Crear un array vacio e insertar la nota creada
     notas.push(nota);
