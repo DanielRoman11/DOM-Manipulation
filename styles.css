@@ -28,12 +28,17 @@ h1{
   flex-direction: row-reverse;
 }
 .contenedor-btn{
-  position: relative;
+  background-color: rgba(0 0 0 / 0.1);
+  backdrop-filter: blur(15px);
+  position: sticky;
+  top: 10px;
+  z-index: 1;
+  height: 50vh;
   padding: 0 1rem;
   font-variant: normal;
   font-size: 1rem;
   font-weight: bold;
-  color: #959d98;
+  color: white;
   display: flex;
   align-content: center;
   align-items: center;
@@ -101,28 +106,30 @@ form > p{
   flex-direction: row-reverse;
   padding: 0.4rem 0;
   padding-right: 1rem;
+  background: rgba(0 0 0 / 0);
+  backdrop-filter: brightness(0.9);
 }
 .caja{
   position: relative;
   flex-grow: 1;
-  background:#FFE6CD;
+  background:#F28F49;
   border: none;
   border-radius: 10px;
   color: var(--text-color);
   max-width: 100%;
   min-width: 20rem;
 }
+.caja:nth-child(2n+1){
+  background-color: #8C7E62;
+}
 .caja:nth-child(4n+0){
-  background-color: #FFE6CD;
-}
-.caja:nth-child(5n+0){
-  background-color: #F28F49;
-}
-.caja:nth-child(3n-1){
   background-color: #D6A666;
 }
+.caja:nth-child(3n-1){
+  background-color: #F4BB93;
+}
 .titleCard{
-  background: rgba(28 26 26 / 0.1);
+  background: rgba(0 0 0 / 0.2);
   border-radius: 7px 7px 0 0;
   padding: 1rem;
 }
@@ -140,7 +147,7 @@ form > p{
   -webkit-background-clip: text;
 }
 .texto#eliminar:hover{
-  background: -webkit-linear-gradient(0deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+  background: -webkit-linear-gradient(0deg, #FD1D1D 0%, #3D0707 51%, #FD1D1D 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -149,12 +156,12 @@ form > p{
 .texto#editar{
   font-family: 'JetBrains Mono', monospace;
   font-weight: 600;
-  background: #759242;
+  background: #2155A6;
   background-clip: text;
   -webkit-background-clip: text;
 }
 .texto#editar:hover{
-  background: -webkit-linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(126,190,132,1) 35%, rgba(161,189,108,1) 75%, rgba(253,187,45,1) 100%);
+  background: -webkit-linear-gradient(0deg, #2155A6 0%, #498AF2 51%, #2155A6 100% );
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -168,7 +175,7 @@ form > p{
 }
 .texto:hover{
   cursor: pointer;
-  text-shadow: 5px 5px solid black;
+  text-shadow: 5px 5px solid #000000;
   text-decoration: var(--text-color) 50% underline;
   text-decoration-thickness: 0.1rem;
   text-underline-offset: 0.4rem;
@@ -219,7 +226,7 @@ button:hover{
 
 @media (max-width: 768px) {
   .seccion{flex-direction: column;}
-  .contenedor-btn{border: 0; padding: 1rem;}
+  .contenedor-btn{border: 0; padding: 1rem; top: 0; margin-bottom: 5rem; height: 40vh;}
   .contenido{padding: 0; gap: 5px; overflow-x: hidden; max-width: 100%;}
   div.caja{margin: 0 !important; max-width: 100% !important; min-width: 10rem;}
 }
