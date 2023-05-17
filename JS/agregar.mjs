@@ -1,16 +1,4 @@
-function getData(i) {
-  return [`
-  <div class="caja" id="tarjeta${i.id}">
-    <h4 class="id">${i.id}</h4>
-    <h3>${i.titulo}</h3>
-    <hr />
-    <p>${i.descripcion}</p>
-    <div class="contenedor-icono">
-      <a class="texto" id="eliminar">Borrar</a>
-      <a class="texto" id="editar">Editar </a>
-    </div>
-  </div>`]
-}
+import { getData } from "./index.mjs";
 
 const crearNota = async() =>{
   //* Tomar valores del formulario
@@ -24,6 +12,18 @@ const crearNota = async() =>{
   //* Crear un id
   let id = 1;
 
+  //TODO: Comprobar errores
+  let errores = document.getElementById("box-error")
+  if(titulo.value === "" || descripcion.value === ""){
+    return errores.innerHTML = `
+    <div class="error">Todos los campos son obligatorios</div>
+    `
+  }
+  
+  if(errores){
+    errores.innerText = ""
+  }
+
   //? Ver si hay datos existentes
   if(!datos){
     //* Crear un objeto [ nota ]
@@ -33,7 +33,7 @@ const crearNota = async() =>{
     descripcion: descripcion.value
     }
 
-    //TODO: Crear un array vacio e insertar la nota creada
+    //* Crear un array vacio e insertar la nota creada
     const notas = [];
     notas.push(nota);
     
@@ -51,7 +51,7 @@ const crearNota = async() =>{
     document.getElementById("contador").innerText = id
 
     //* Insertar elemento en el listado:
-    return desc.insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
+    desc.insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
   } else {
     //* Obtener los datos del localstorage
     let datos = await JSON.parse(localStorage.getItem("notas"));
@@ -69,15 +69,14 @@ const crearNota = async() =>{
     //* Modificación del id en notas
     nota.id = id++
     
-
     //* Creando una copia de los datos
     const notas = [...datos];
-    console.log(notas);
+    // console.log(notas);
   
-    // //TODO: Crear un array vacio e insertar la nota creada
+    //* Crear un array vacio e insertar la nota creada
     notas.push(nota);
   
-    // //* Modificar el objeto agregando la nueva nota
+    //* Modificar el objeto agregando la nueva nota
     localStorage.setItem("notas", JSON.stringify(notas));
   
     //* Refrescar los datos
@@ -88,26 +87,11 @@ const crearNota = async() =>{
     document.getElementById("contador").innerText = Object.keys(datos).length
 
     //* Insertar elemento en el listado:
-    return document.getElementById(`tarjeta${size}`).insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
+    document.getElementById(`tarjeta${size}`).insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
   }
+  //* Reiniciar campos
+  titulo.value = ""
+  return descripcion.value= ""
 }
-//* Variable Contador */
-let contador = document.getElementById("contador")
 
-//* Comprobar si existen notas creadas
-if(window.localStorage.getItem("notas") !== null){
-  //* Tomar las notas anteriores
-  let datos = JSON.parse(localStorage.getItem("notas"));
-
-  //* Copiar los datos
-  const notas = [...datos];
-  
-  //* Iterar por cada elemeto y crear cada nota
-  const contenido = notas.map(getData).join("");
-  
-  //* Insertar elementos existentes después del título
-  document.getElementById("desc").insertAdjacentHTML("afterend", contenido);
-
-  //* Cambiar el contador
-  document.getElementById("contador").innerText = Object.keys(datos).length
-}
+export default crearNota;
