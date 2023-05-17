@@ -15,7 +15,7 @@ async function removerNota() {
       }
     });
   });
-  
+  let contador = document.getElementById("contador")
 }
 
 export default removerNota;
