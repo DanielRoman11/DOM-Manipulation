@@ -1,12 +1,21 @@
 import { getData } from './index.mjs';
 
-async function removerNota(i) {
+async function removerNota() {
   let datos = await JSON.parse(localStorage.getItem("notas"));
   //* Copiar los datos
   const notas = [...datos];
-  console.log("Notas antes: "+ notas);
-  notas.splice(i, 1);
-  console.log("Notas después: "+ notas); 
+  console.log(notas);
+  document.querySelectorAll(".caja").forEach(el => {
+    el.addEventListener("click", e => {
+      let type = e.target.nodeName
+      console.log(type);
+      if(type == "A"){
+        let targetId = e.target.parentNode.parentNode.id
+        document.getElementById(targetId).remove()
+      }
+    });
+  });
+  let contador = document.getElementById("contador")
 }
 
 export default removerNota;
