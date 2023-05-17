@@ -24,8 +24,7 @@ if(window.localStorage.getItem("notas") !== null){
 
   // //* Funcionalidad remover nota
   let removerBtn = document.getElementById("eliminar");
-  removerBtn.addEventListener("click", () => removerNota())
-  
+  removerBtn.addEventListener("click", removerNota());
 }
 
 let agregarBtn = document.getElementById("agregar");
