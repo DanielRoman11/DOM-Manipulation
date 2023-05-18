@@ -119,7 +119,6 @@ form > p{
   color: var(--text-color);
   max-width: 100%;
   min-width: 20rem;
-  transition: 2s ease-in;
 }
 .caja:nth-child(2n+1){
   background-color: #8C7E62;
