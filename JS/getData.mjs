@@ -7,8 +7,8 @@ function getData(i) {
     </div>
     <p>${i.descripcion}</p>
     <div class="contenedor-icono">
-      <a class="texto" id="eliminar">Borrar</a>
-      <a class="texto" id="editar">Editar</a>
+      <a class="texto" id="eliminar">Delete</a>
+      <a class="texto" id="editar">Edit</a>
     </div>
   </div>`];
 }

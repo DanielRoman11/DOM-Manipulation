@@ -1,95 +1,95 @@
 import { getData } from "./index.mjs";
 
 const crearNota = async() =>{
-  //* Tomar valores del formulario
+  //* Take values from the form
   const titulo = document.getElementById("titulo");
   const descripcion = document.getElementById("descripcion");
 
   
-  //* Obtener los datos del localstorage
+  //* Obtain localstorage data
   const datos = await JSON.parse(localStorage.getItem("notas"));
   
-  //* Crear un id
+  //* Create id
   let id = 1;
 
-  //TODO: Comprobar errores
+  //* Check form errors
   let errores = document.getElementById("box-error")
   if(titulo.value === "" || descripcion.value === ""){
     return errores.innerHTML = `
-    <div class="error">Todos los campos son obligatorios</div>
+    <div class="error">All fields are required</div>
     `
   }
-  
+  //* Remove errors
   if(errores){
     errores.innerText = ""
   }
 
-  //? Ver si hay datos existentes
+  //? See if there is existing data
   if(!datos){
-    //* Crear un objeto [ nota ]
+    //* Create an object [ nota ]
     const nota = {
     id,
     titulo: titulo.value,
     descripcion: descripcion.value
     }
 
-    //* Crear un array vacio e insertar la nota creada
+    //* Create an empty array and insert the note you created.
     const notas = [];
     notas.push(nota);
     
-    //* Insertar el array en localstorage un objeto en localstorage
+    //* Insert the array in localstorage an object in localstorage
     localStorage.setItem("notas", JSON.stringify(notas));
     
-    //* Mostrar nueva nota
+    //* Show new note
     const desc = document.getElementById("desc"); //? Elemento donde se insertarán las notas
     
-    //* Obtener datos
+    //* Get data
     const datos = await JSON.parse(localStorage.getItem("notas"));
     const size = Object.keys(datos).length - 1 //? Tamaño del objeto
     
-    //* Mostrar cantidad de insertados
+    //* Show inserted data
     document.getElementById("contador").innerText = id
 
-    //* Insertar elemento en el listado:
+    //* Insert element in the list:
     desc.insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
   } else {
-    //* Obtener los datos del localstorage
+    //* Get localstorage data
     let datos = await JSON.parse(localStorage.getItem("notas"));
     
-    //* Crear un id a partir del tamaño del Objeto
+    //* Create an id from the Object size
     let id = Object.keys(datos).length + 1
     
-    //* Crear un objeto [ nota ]
+    //* Create an object [ nota ]
     const nota = {
       id,
       titulo: titulo.value,
       descripcion: descripcion.value
     }
     
-    //* Modificación del id en notas
+    //* Modification of the id in notes
     nota.id = id++
     
-    //* Creando una copia de los datos
+    //* Creating a copy of the data
     const notas = [...datos];
     // console.log(notas);
   
-    //* Crear un array vacio e insertar la nota creada
+    //* Create an empty array and insert the note you created.
     notas.push(nota);
   
-    //* Modificar el objeto agregando la nueva nota
+    //* Modify the object by adding the new note
     localStorage.setItem("notas", JSON.stringify(notas));
   
-    //* Refrescar los datos
+    //* Refresh data
     datos = await JSON.parse(localStorage.getItem("notas"));
     const size = Object.keys(datos).length - 1 //? Tamaño del objeto
 
-    //* Mostrar cantidad de insertados
+    //* Show number of inserted notes
     document.getElementById("contador").innerText = Object.keys(datos).length
 
-    //* Insertar elemento en el listado:
+    //* Insert element in the list:
     document.getElementById(`tarjeta${size}`).insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
   }
-  //* Reiniciar campos
+  //* Reset fields
   titulo.value = ""
   return descripcion.value= ""
 }

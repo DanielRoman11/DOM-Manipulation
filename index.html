@@ -11,23 +11,23 @@
   <script type="module" defer src="JS/delete.mjs"></script>
 </head>
 <body>
-  <h1>Notas 🗒️</h1>
+  <h1>Notes 🗒️</h1>
   <section class="seccion">
     <div class="contenedor-btn">
       <form id="formulario">
-        <label for="titulo">Titulo: </label>
+        <label for="titulo">Title: </label>
         <input name="titulo" id="titulo" type="text"/>
-        <p>Descripción:</p>
+        <p>Description:</p>
         <textarea name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
       </form>
       <div class="botones">
-        <button id="agregar" type="submit">Insertar Nota</button>
-        <button onclick="reiniciarDatos()" id="reiniciar">Reiniciar Notas</button>
+        <button id="agregar" type="submit">Insert note</button>
+        <button onclick="reiniciarDatos()" id="reiniciar">Reset list</button>
       </div>
       <div id="box-error"></div>
     </div>
     <div class="contenido">
-      <p id="desc">Tarjetas añadidas: <span id="contador"></span></p>
+      <p id="desc">Notes created: <span id="contador"></span></p>
     </div>
   </section>
   
