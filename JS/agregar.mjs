@@ -57,7 +57,11 @@ const crearNota = async() =>{
     let datos = await JSON.parse(localStorage.getItem("notas"));
     
     //* Create an id from the Object size
-    let id = Object.keys(datos).length + 1
+    const lastNote = Array.from(
+      document.querySelectorAll('.caja')
+    ).pop();
+    console.log(lastNote.firstElementChild.firstElementChild.innerText)
+    let id = Number(lastNote.firstElementChild.firstElementChild.innerText) + 1
     
     //* Create an object [ nota ]
     const nota = {

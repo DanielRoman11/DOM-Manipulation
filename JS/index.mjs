@@ -22,14 +22,16 @@ if(window.localStorage.getItem("notas") !== null){
   //? Cambiando el contador
   document.getElementById("contador").innerText = Object.keys(datos).length;
 
-  // //* Funcionalidad remover nota
-  let removerBtn = document.getElementById("eliminar");
-  removerBtn.addEventListener("click", removerNota());
 }
 
 let agregarBtn = document.getElementById("agregar");
+let removerBtn = document.getElementById("eliminar");
 
 agregarBtn.addEventListener("click", () => crearNota())
+if(removerBtn){
+  let datos = JSON.parse(localStorage.getItem("notas"));
+  removerBtn.addEventListener("click", removerNota());
+}
 
 export {
   getData
