@@ -1,5 +1,3 @@
-import { getData } from './index.mjs';
-
 function removerNota() {
   //* Iterar cada elemento de la tarjeta
   let datos = JSON.parse(localStorage.getItem("notas"));

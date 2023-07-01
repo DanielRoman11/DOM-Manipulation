@@ -5,7 +5,6 @@ const crearNota = async() =>{
   const titulo = document.getElementById("titulo");
   const descripcion = document.getElementById("descripcion");
 
-  
   //* Obtain localstorage data
   const datos = await JSON.parse(localStorage.getItem("notas"));
   
@@ -95,7 +94,7 @@ const crearNota = async() =>{
   }
   //* Reset fields
   titulo.value = ""
-  return descripcion.value= ""
+  descripcion.value= ""
 }
 
 export default crearNota;

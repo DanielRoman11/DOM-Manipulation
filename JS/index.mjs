@@ -30,7 +30,7 @@ let removerBtn = document.getElementById("eliminar");
 agregarBtn.addEventListener("click", () => crearNota())
 if(removerBtn){
   let datos = JSON.parse(localStorage.getItem("notas"));
-  removerBtn.addEventListener("click", removerNota());
+  removerBtn.addEventListener("click", removerNota);
 }
 
 export {
