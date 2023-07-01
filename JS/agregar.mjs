@@ -97,4 +97,16 @@ const crearNota = async() =>{
   descripcion.value= ""
 }
 
+
+const agregarnota = async() => {
+  const titulo = document.getElementById("titulo");
+  const descripcion = document.getElementById("descripcion");
+
+  const datos = await JSON.parse(localStorage.getItem("notas"));
+
+  let id = 1
+
+  let errores = document.getElementById("box-error")
+}
+
 export default crearNota;
