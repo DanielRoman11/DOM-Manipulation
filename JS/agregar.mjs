@@ -42,7 +42,6 @@ const crearNota = async() =>{
     //* Get data
     const datos = await JSON.parse(localStorage.getItem("notas"));
     const size = Object.keys(datos).length - 1 //? Tamaño del objeto
-    
     //* Show inserted data
     document.getElementById("contador").innerText = id
     
@@ -50,6 +49,7 @@ const crearNota = async() =>{
     const listaNotas = document.getElementById("noteslist"); //? Elemento donde se insertarán las notas
 
     //* Insert element in the list:
+    
     listaNotas.insertAdjacentHTML("beforeend", getData(datos[size]).join(" "));
 
     const notaElem = document.getElementById(`tarjeta${nota.id}`).lastElementChild.firstElementChild;
