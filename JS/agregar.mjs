@@ -52,6 +52,12 @@ const crearNota = async() =>{
 
     //* Insert element in the list:
     desc.insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
+
+    const notaElem = document.getElementById(`tarjeta${nota.id}`).lastElementChild.firstElementChild;
+
+    notaElem.addEventListener("click", removerNota());
+    // console.log(notaElem);
+
   } else {
     //* Get localstorage data
     let datos = await JSON.parse(localStorage.getItem("notas"));
@@ -60,7 +66,7 @@ const crearNota = async() =>{
     const lastNote = Array.from(
       document.querySelectorAll('.caja')
     ).pop();
-    console.log(lastNote.firstElementChild.firstElementChild.innerText)
+    // console.log(lastNote.firstElementChild.firstElementChild.innerText)
     let id = Number(lastNote.firstElementChild.firstElementChild.innerText) + 1
     
     //* Create an object [ nota ]
@@ -92,6 +98,12 @@ const crearNota = async() =>{
 
     //* Insert element in the list:
     document.getElementById(`tarjeta${size}`).insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
+
+    const notaElem = document.getElementById(`tarjeta${nota.id}`).lastElementChild.firstElementChild;
+
+    notaElem.addEventListener("click", removerNota());
+    // console.log(notaElem);
+
   }
   //* Reset fields
   titulo.value = ""
