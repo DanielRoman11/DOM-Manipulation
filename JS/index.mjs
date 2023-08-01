@@ -3,8 +3,6 @@ import removerNota from "./delete.mjs";
 import getData from "./getData.mjs";
 
 
-let contador = document.getElementById("contador") //? Variable contador
-
 //* Comprobar si existen notas creadas
 if(window.localStorage.getItem("notas") !== null){
   //? Tomando los datos de las notas
@@ -28,9 +26,10 @@ let agregarBtn = document.getElementById("agregar");
 let removerBtn = document.getElementById("eliminar");
 
 agregarBtn.addEventListener("click", () => crearNota())
+
 if(removerBtn){
   let datos = JSON.parse(localStorage.getItem("notas"));
-  removerBtn.addEventListener("click", removerNota);
+  removerBtn.addEventListener("click", removerNota());
 }
 
 export {

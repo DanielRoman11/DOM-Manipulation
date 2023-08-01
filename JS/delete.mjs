@@ -10,27 +10,24 @@ function removerNota() {
       let opcion = e.target.innerText
       if(opcion == "Delete"){ //? Evento en el botón
         //? Obtener ID de la tarjeta en espécífico
-        let targetId = e.target.parentNode.parentNode.id 
+        let target = e.target.parentNode.parentNode
         //! Remover el elemento padre
-        // document.getElementById(targetId).remove();
+        // console.log(target);
+        target.remove();
         
-        //? Disminuir el contador
-        let contador = document.getElementById("contador")
-        contador.innerHTML = contador.innerText - 1
-        if(contador.innerText == 0){
-          contador.innerHTML = ""
-        }
-        
-        let id = e.target.parentNode.parentNode.firstElementChild.firstElementChild.innerText
+        let idEliminar = e.target.parentNode.parentNode.firstElementChild.firstElementChild.innerText;
         
         if(Object.keys(notas).length !== 1){
-          notas = notas.filter(i => i.id != id)
+          const indexEliminar = notas.findIndex(nota => nota.id === Number(idEliminar));
 
-          let contador = document.getElementById("contador")
-          contador.innerHTML = contador.innerText --
+          if(indexedDB !== -1) notas.splice(indexEliminar, 1);
+
+          //? Disminuir el contador
+          document.getElementById("contador").innerHTML = Object.keys(datos).length - 1;
 
           return localStorage.setItem("notas", JSON.stringify(notas))
         }
+        document.getElementById("contador").innerHTML = "";
         return localStorage.removeItem("notas")
       }
     });

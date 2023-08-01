@@ -91,13 +91,18 @@ const crearNota = async() =>{
   
     //* Refresh data
     datos = await JSON.parse(localStorage.getItem("notas"));
-    const size = Object.keys(datos).length - 1 //? Tamaño del objeto
+    
+    let size = Object.keys(datos).length - 1 //? Tamaño del objeto
+    console.log(datos[size]);
 
     //* Show number of inserted notes
     document.getElementById("contador").innerText = Object.keys(datos).length
 
     //* Insert element in the list:
-    document.getElementById(`tarjeta${size}`).insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
+    const newElem = await datos[size];
+    console.log(newElem);
+
+    document.getElementById(`tarjeta${size}`).insertAdjacentHTML("afterend", getData(newElem).join(" "));
 
     const notaElem = document.getElementById(`tarjeta${nota.id}`).lastElementChild.firstElementChild;
 
