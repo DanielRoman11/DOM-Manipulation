@@ -9,8 +9,12 @@ function removerNota() {
     el.addEventListener("click", e => {
       let opcion = e.target.innerText
       if(opcion == "Delete"){ //? Evento en el botón
-        let targetId = e.target.parentNode.parentNode.id //? Obtener ID de la tarjeta en espécífico
+        //? Obtener ID de la tarjeta en espécífico
+        let targetId = e.target.parentNode.parentNode.id 
+        //! Remover el elemento padre
         document.getElementById(targetId).remove()
+        
+        //? Disminuir el contador
         let contador = document.getElementById("contador")
         contador.innerHTML = contador.innerText - 1
         if(contador.innerText == 0){
@@ -21,8 +25,10 @@ function removerNota() {
         
         if(Object.keys(notas).length !== 1){
           notas = notas.filter(i => i.id != id)
-          console.log(notas);
-          document.getElementById("contador").innerText = Object.keys(datos).length;
+
+          let contador = document.getElementById("contador")
+          contador.innerHTML = contador.innerText --
+
           return localStorage.setItem("notas", JSON.stringify(notas))
         }
         return localStorage.removeItem("notas")
