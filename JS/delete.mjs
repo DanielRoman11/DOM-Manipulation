@@ -12,7 +12,7 @@ function removerNota() {
         //? Obtener ID de la tarjeta en espécífico
         let targetId = e.target.parentNode.parentNode.id 
         //! Remover el elemento padre
-        document.getElementById(targetId).remove()
+        // document.getElementById(targetId).remove();
         
         //? Disminuir el contador
         let contador = document.getElementById("contador")
