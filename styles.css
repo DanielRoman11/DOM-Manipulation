@@ -225,6 +225,12 @@ button:hover{
   }
 }
 
+#notas-container{
+  display: flex;
+  flex-flow: wrap;
+  gap: 2px;
+}
+
 @media (max-width: 768px) {
   .seccion{flex-direction: column;}
   .contenedor-btn{border: 0; padding: 1rem; top: 0; margin-bottom: 5rem; height: 40vh;}

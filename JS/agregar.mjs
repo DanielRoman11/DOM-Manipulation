@@ -20,9 +20,7 @@ const crearNota = async() =>{
     `
   }
   //* Remove errors
-  if(errores){
-    errores.innerText = ""
-  }
+  if(errores) errores.innerText = "";
 
   //? See if there is existing data
   if(!datos){
@@ -40,8 +38,6 @@ const crearNota = async() =>{
     //* Insert the array in localstorage an object in localstorage
     localStorage.setItem("notas", JSON.stringify(notas));
     
-    //* Show new note
-    const desc = document.getElementById("desc"); //? Elemento donde se insertarán las notas
     
     //* Get data
     const datos = await JSON.parse(localStorage.getItem("notas"));
@@ -49,9 +45,12 @@ const crearNota = async() =>{
     
     //* Show inserted data
     document.getElementById("contador").innerText = id
+    
+    //* Show new note
+    const listaNotas = document.getElementById("noteslist"); //? Elemento donde se insertarán las notas
 
     //* Insert element in the list:
-    desc.insertAdjacentHTML("afterend", getData(datos[size]).join(" "));
+    listaNotas.insertAdjacentHTML("beforeend", getData(datos[size]).join(" "));
 
     const notaElem = document.getElementById(`tarjeta${nota.id}`).lastElementChild.firstElementChild;
 
@@ -91,7 +90,7 @@ const crearNota = async() =>{
   
     //* Refresh data
     datos = await JSON.parse(localStorage.getItem("notas"));
-    
+
     let size = Object.keys(datos).length - 1 //? Tamaño del objeto
     console.log(datos[size]);
 
@@ -102,8 +101,10 @@ const crearNota = async() =>{
     const newElem = await datos[size];
     console.log(newElem);
 
-    document.getElementById(`tarjeta${size}`).insertAdjacentHTML("afterend", getData(newElem).join(" "));
+    const listaNotas = document.getElementById("notesList");
 
+    listaNotas.insertAdjacentHTML("beforeend", getData(newElem).join(" "));
+    
     const notaElem = document.getElementById(`tarjeta${nota.id}`).lastElementChild.firstElementChild;
 
     notaElem.addEventListener("click", removerNota());

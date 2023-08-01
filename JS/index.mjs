@@ -15,7 +15,11 @@ if(window.localStorage.getItem("notas") !== null){
   const contenido = notas.map(getData).join("");
   
   //? Insertar elementos existentes después del título
-  document.getElementById("desc").insertAdjacentHTML("afterend", contenido); 
+  const contenedor = document.getElementById("notesList");
+
+  contenedor.insertAdjacentHTML("beforeend", contenido);
+
+  // document.getElementById("desc").insertAdjacentHTML("afterend", contenido); 
 
   //? Cambiando el contador
   document.getElementById("contador").innerText = Object.keys(datos).length;
@@ -32,6 +36,4 @@ if(removerBtn){
   removerBtn.addEventListener("click", removerNota());
 }
 
-export {
-  getData
-}
+export { getData }
