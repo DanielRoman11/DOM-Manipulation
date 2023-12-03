@@ -43,12 +43,18 @@ if(window.localStorage.getItem("notas") !== null){
 
 let agregarBtn = document.getElementById("agregar");
 let removerBtn = document.getElementById("eliminar");
+let editBtn = document.getElementById("editar");
 
 agregarBtn.addEventListener("click", () => crearNota())
 
 if(removerBtn){
   let datos = JSON.parse(localStorage.getItem("notas"));
   removerBtn.addEventListener("click", removerNota());
+}
+if(editBtn){
+  editBtn.addEventListener("click", ()=>{
+    alert("Currently under development👨‍💻")
+  })
 }
 
 export { getData }
