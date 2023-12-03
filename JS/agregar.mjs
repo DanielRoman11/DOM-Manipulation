@@ -41,18 +41,11 @@ const crearNota = async() =>{
     document.getElementById("contador").innerText = 1
     
     //* Insert element in the list:
-    const listaNotas = document.getElementById("noteslist"); //? Elemento donde se insertarán las notas
-    // console.log(newElem);
+    const listaNotas = document.getElementById("notesList"); //? Elemento donde se insertarán las notas
 
-    listaNotas.insertAdjacentHTML("beforeend", getData(nota).join(" "));
+    const content = getData(nota)[0]
 
-    // listaNotas.insertAdjacentHTML("beforeend", getData(nota));
-
-    // const notaElem = document.getElementById(`tarjeta${nota.id}`).lastElementChild.firstElementChild;
-
-    notaElem.addEventListener("click", removerNota());
-    // console.log(notaElem);
-
+    listaNotas.insertAdjacentHTML("beforeend", content);
   } else {
     //* Get localstorage data
     let datos = await JSON.parse(localStorage.getItem("notas"));
