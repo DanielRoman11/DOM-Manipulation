@@ -75,7 +75,6 @@ form > p{
 }
 .contenido {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   flex: 1 1 auto;
   word-wrap: break-word;
@@ -90,6 +89,13 @@ form > p{
   font-size: x-large;
   text-align: justify;
   width: 100%;
+}
+#notesList{
+  display: flex;
+  width: 100%;
+  flex: 1 auto;
+  flex-direction: column;
+  gap: 15px;
 }
 .id{
   position: absolute;
@@ -113,6 +119,7 @@ form > p{
   position: relative;
   height: max-content;
   flex-grow: 1;
+  flex: 1 auto;
   background:#F28F49;
   border: none;
   border-radius: 10px;

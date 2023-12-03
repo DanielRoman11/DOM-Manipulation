@@ -1,3 +1,5 @@
+import { getSize } from "./index.mjs";
+
 function removerNota() {
   //* Iterar cada elemento de la tarjeta
   let datos = JSON.parse(localStorage.getItem("notas"));
@@ -23,7 +25,9 @@ function removerNota() {
           if(indexedDB !== -1) notas.splice(indexEliminar, 1);
 
           //? Disminuir el contador
-          document.getElementById("contador").innerHTML = Object.keys(datos).length - 1;
+          let cantidadnotas = document.getElementById("notesList").children.length;
+          
+          document.getElementById("contador").innerHTML = cantidadnotas;
 
           return localStorage.setItem("notas", JSON.stringify(notas))
         }
