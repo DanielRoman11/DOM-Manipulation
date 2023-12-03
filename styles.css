@@ -93,9 +93,9 @@ form > p{
 #notesList{
   display: flex;
   width: 100%;
-  flex: 1 auto;
-  flex-direction: column;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 5px;
+  white-space: unset;
 }
 .id{
   position: absolute;
@@ -116,15 +116,10 @@ form > p{
   backdrop-filter: brightness(0.9);
 }
 .caja{
-  position: relative;
   height: max-content;
-  flex-grow: 1;
-  flex: 1 auto;
   background:#F28F49;
-  border: none;
   border-radius: 10px;
   color: var(--text-color);
-  max-width: 100%;
   min-width: 20rem;
 }
 .caja:nth-child(2n+1){
