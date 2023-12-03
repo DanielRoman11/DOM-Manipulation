@@ -1,5 +1,5 @@
 import removerNota from "./delete.mjs";
-import { getData } from "./index.mjs";
+import { getData, getDatos, getSize, id } from "./index.mjs";
 
 const crearNota = async() =>{
   //* Take values from the form
@@ -7,11 +7,10 @@ const crearNota = async() =>{
   const descripcion = document.getElementById("descripcion");
 
   //* Obtain localstorage data
-  const datos = await JSON.parse(localStorage.getItem("notas"));
+  let datos = await JSON.parse(localStorage.getItem("notas"));
   
   //* Create id
-  let id = 1;
-
+  let actualId = id + 1;
   //* Check form errors
   let errores = document.getElementById("box-error")
   if(titulo.value === "" || descripcion.value === ""){
@@ -26,7 +25,7 @@ const crearNota = async() =>{
   if(!datos){
     //* Create an object [ nota ]
     const nota = {
-    id,
+    id: actualId++,
     titulo: titulo.value,
     descripcion: descripcion.value
     }
@@ -37,22 +36,19 @@ const crearNota = async() =>{
     
     //* Insert the array in localstorage an object in localstorage
     localStorage.setItem("notas", JSON.stringify(notas));
-    
-    
-    //* Get data
-    const datos = await JSON.parse(localStorage.getItem("notas"));
-    const size = Object.keys(datos).length - 1 //? Tamaño del objeto
+
     //* Show inserted data
-    document.getElementById("contador").innerText = id
+    document.getElementById("contador").innerText = 1
     
-    //* Show new note
-    const listaNotas = document.getElementById("noteslist"); //? Elemento donde se insertarán las notas
-
     //* Insert element in the list:
-    
-    listaNotas.insertAdjacentHTML("beforeend", getData(datos[size]).join(" "));
+    const listaNotas = document.getElementById("noteslist"); //? Elemento donde se insertarán las notas
+    // console.log(newElem);
 
-    const notaElem = document.getElementById(`tarjeta${nota.id}`).lastElementChild.firstElementChild;
+    listaNotas.insertAdjacentHTML("beforeend", getData(nota).join(" "));
+
+    // listaNotas.insertAdjacentHTML("beforeend", getData(nota));
+
+    // const notaElem = document.getElementById(`tarjeta${nota.id}`).lastElementChild.firstElementChild;
 
     notaElem.addEventListener("click", removerNota());
     // console.log(notaElem);
@@ -95,7 +91,7 @@ const crearNota = async() =>{
     console.log(datos[size]);
 
     //* Show number of inserted notes
-    document.getElementById("contador").innerText = Object.keys(datos).length
+    document.getElementById("contador").innerText = getSize(datos);
 
     //* Insert element in the list:
     const newElem = await datos[size];

@@ -2,6 +2,21 @@ import crearNota from "./agregar.mjs";
 import removerNota from "./delete.mjs";
 import getData from "./getData.mjs";
 
+export let id = 0;
+
+export async function getDatos(){
+  try {
+    return await JSON.parse(localStorage.getItem("notas"));
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+export function getSize(datos) {
+  if(datos !== undefined && datos !== null)
+    return Object.keys(datos).length
+  else return "vacio"
+}
 
 //* Comprobar si existen notas creadas
 if(window.localStorage.getItem("notas") !== null){
