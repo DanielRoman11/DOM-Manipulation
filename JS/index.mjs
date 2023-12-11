@@ -45,7 +45,7 @@ let agregarBtn = document.getElementById("agregar");
 let removerBtn = document.getElementById("eliminar");
 let editBtn = document.getElementById("editar");
 
-agregarBtn.addEventListener("click", () => crearNota())
+agregarBtn.addEventListener("click", () => crearNota());
 
 if(removerBtn){
   let datos = JSON.parse(localStorage.getItem("notas"));
