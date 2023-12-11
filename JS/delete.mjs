@@ -1,5 +1,3 @@
-import { getData } from './index.mjs';
-
 function removerNota() {
   //* Iterar cada elemento de la tarjeta
   let datos = JSON.parse(localStorage.getItem("notas"));
@@ -11,22 +9,27 @@ function removerNota() {
     el.addEventListener("click", e => {
       let opcion = e.target.innerText
       if(opcion == "Delete"){ //? Evento en el botón
-        let targetId = e.target.parentNode.parentNode.id //? Obtener ID de la tarjeta en espécífico
-        document.getElementById(targetId).remove()
-        let contador = document.getElementById("contador")
-        contador.innerHTML = contador.innerText - 1
-        if(contador.innerText == 0){
-          contador.innerHTML = ""
-        }
+        //? Obtener ID de la tarjeta en espécífico
+        let target = e.target.parentNode.parentNode
+        //! Remover el elemento padre
+        // console.log(target);
+        target.remove();
         
-        let id = e.target.parentNode.parentNode.firstElementChild.firstElementChild.innerText
+        let idEliminar = e.target.parentNode.parentNode.firstElementChild.firstElementChild.innerText;
         
         if(Object.keys(notas).length !== 1){
-          notas = notas.filter(i => i.id != id)
-          console.log(notas);
-          document.getElementById("contador").innerText = Object.keys(datos).length;
+          const indexEliminar = notas.findIndex(nota => nota.id === Number(idEliminar));
+
+          if(indexedDB !== -1) notas.splice(indexEliminar, 1);
+
+          //? Disminuir el contador
+          let cantidadnotas = document.getElementById("notesList").children.length;
+          
+          document.getElementById("contador").innerHTML = cantidadnotas;
+
           return localStorage.setItem("notas", JSON.stringify(notas))
         }
+        document.getElementById("contador").innerHTML = "";
         return localStorage.removeItem("notas")
       }
     });

@@ -1,6 +1,6 @@
 function getData(i) {
   return [`
-  <div class="caja" id="tarjeta${i.id}">
+  <article class="caja" id="tarjeta${i.id}">
     <div class="titleCard">
       <h4 class="id">${i.id}</h4>
       <h3>${i.titulo}</h3>
@@ -10,7 +10,8 @@ function getData(i) {
       <a class="texto" id="eliminar">Delete</a>
       <a class="texto" id="editar">Edit</a>
     </div>
-  </div>`];
+  </article>`
+  ]
 }
 
 export default getData;

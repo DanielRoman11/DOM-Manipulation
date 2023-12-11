@@ -9,6 +9,7 @@
   <script type="module" defer src="JS/index.mjs"></script>
   <script defer src="JS/reload.js"></script>
   <script type="module" defer src="JS/delete.mjs"></script>
+  <script type="module" defer src="JS/agregar.mjs"></script>
 </head>
 <body>
   <h1>Notes 🗒️</h1>
@@ -26,10 +27,11 @@
       </div>
       <div id="box-error"></div>
     </div>
-    <div class="contenido">
-      <p id="desc">Notes created: <span id="contador"></span></p>
+    <div class="contenido" id="notas-container">
+        <p id="desc">Notes created: <span id="contador"></span></p>
+        <!-- Here! this were the notes are added -->
+        <div id="notesList"></div>
     </div>
   </section>
-  
 </body>
 </html>

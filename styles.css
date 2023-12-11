@@ -75,7 +75,6 @@ form > p{
 }
 .contenido {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   flex: 1 1 auto;
   word-wrap: break-word;
@@ -90,6 +89,13 @@ form > p{
   font-size: x-large;
   text-align: justify;
   width: 100%;
+}
+#notesList{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 5px;
+  white-space: unset;
 }
 .id{
   position: absolute;
@@ -110,14 +116,10 @@ form > p{
   backdrop-filter: brightness(0.9);
 }
 .caja{
-  position: relative;
   height: max-content;
-  flex-grow: 1;
   background:#F28F49;
-  border: none;
   border-radius: 10px;
   color: var(--text-color);
-  max-width: 100%;
   min-width: 20rem;
 }
 .caja:nth-child(2n+1){
@@ -223,6 +225,12 @@ button:hover{
   to{
     background-position: 100vw;
   }
+}
+
+#notas-container{
+  display: flex;
+  flex-flow: wrap;
+  gap: 2px;
 }
 
 @media (max-width: 768px) {
